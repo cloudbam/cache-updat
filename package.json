@@ -1,0 +1,23 @@
+{
+  "name": "adi-pnpm-monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm --filter \"./packages/*\" -r build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^4.7.4",
+    "unbuild": "^0.8.8"
+  },
+  "description": "",
+  "dependencies": {
+    "@packages/core": "workspace:^1.0.0",
+    "execa": "^7.2.0",
+    "ts-node": "^10.9.1"
+  }
+}
