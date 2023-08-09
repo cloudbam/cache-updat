@@ -4,12 +4,17 @@
   "main": "index.js",
   "scripts": {
     "build": "pnpm --filter \"./packages/*\" -r build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npx only-allow pnpm",
+    "watch": "pnpm --parallel -r run watch",
+    "changeset": "changeset",
+    "version-packages": "changeset version"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^4.7.4",
     "unbuild": "^0.8.8"
