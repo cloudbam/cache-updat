@@ -8,7 +8,9 @@
     "preinstall": "npx only-allow pnpm",
     "watch": "pnpm --parallel -r run watch",
     "changeset": "changeset",
-    "version-packages": "changeset version"
+    "version-packages": "changeset version",
+    "publish": "changeset publish --registry=https://registry.npmjs.com/"
+
   },
   "keywords": [],
   "author": "",

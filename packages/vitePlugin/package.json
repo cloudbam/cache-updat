@@ -20,6 +20,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@packages/core": "workspace:^1.0.0"
+    "@packages/core": "workspace:^2.0.0"
   }
 }
