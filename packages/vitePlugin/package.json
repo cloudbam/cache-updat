@@ -1,6 +1,6 @@
 {
-  "name": "@packages/vitePlugin",
-  "version": "1.0.0",
+  "name": "@plugin-web-cache-update/vite-plugin",
+  "version": "4.0.0",
   "description": "",
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
@@ -20,6 +20,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@packages/core": "workspace:^2.0.0"
+    "@packages/core": "workspace:^1.1.0"
   }
 }

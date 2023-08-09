@@ -1,7 +1,7 @@
 # @packages/core
 
-## 2.0.0
+## 1.1.0
 
-### Major Changes
+### Minor Changes
 
 - 1.1.0

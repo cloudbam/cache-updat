@@ -1,5 +1,5 @@
 {
-  "name": "adi-pnpm-monorepo",
+  "name": "plugin-web-cache-update",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "npx only-allow pnpm",
     "watch": "pnpm --parallel -r run watch",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
-    "publish": "changeset publish --registry=https://registry.npmjs.com/"
-
+    "preversion": "changeset",
+    "version": "changeset version && pnpm install --no-frozen-lockfile && pnpm run format:code",
+    "release": "pnpm run clean && pnpm run build:packages && changeset publish",
+    "release:nobuild": "changeset publish"
   },
   "keywords": [],
   "author": "",
@@ -26,5 +26,13 @@
     "@packages/core": "workspace:^1.0.0",
     "execa": "^7.2.0",
     "ts-node": "^10.9.1"
+  },
+  
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
+
+
+
 }
