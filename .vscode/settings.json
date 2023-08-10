@@ -1,4 +1,8 @@
 {
     "eggHelper.serverPort": 35684,
-    "editor.suggest.snippetsPreventQuickSuggestions": false
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "cSpell.words": [
+        "execa"
+    ],
+    "aiXcoder.showTrayIcon": true
 }

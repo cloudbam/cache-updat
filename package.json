@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "pnpm --filter \"./packages/*\" -r build",
+    "build": "pnpm --filter \"./packages/*\" -r  build:packages",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf lib dist es",
     "preinstall": "npx only-allow pnpm",
     "watch": "pnpm --parallel -r run watch",
-    "preversion": "changeset",
-    "version": "changeset version && pnpm install --no-frozen-lockfile && pnpm run format:code",
-    "release": "pnpm run clean && pnpm run build:packages && changeset publish",
+    "perversion": "changeset",
+    "version": "changeset version && pnpm install --no-frozen-lockfile",
+    "release": "pnpm run clean && pnpm run build -r && changeset publish",
     "release:nobuild": "changeset publish"
   },
   "keywords": [],
@@ -23,16 +24,14 @@
   },
   "description": "",
   "dependencies": {
-    "@packages/core": "workspace:^1.0.0",
+    "@types/node": "^20.4.9",
     "execa": "^7.2.0",
-    "ts-node": "^10.9.1"
+    "pnpm": "^8.6.12",
+    "ts-node": "^10.9.1",
+    "vite": "^4.4.9"
   },
-  
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   }
-
-
-
 }
