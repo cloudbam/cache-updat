@@ -2,7 +2,7 @@
  * @Author: yinbing.liu
  * @Date: 2022-08-13 21:07:01
  * @LastEditors: yinbing.liu
- * @LastEditTime: 2023-08-10 14:49:48
+ * @LastEditTime: 2023-08-11 16:48:51
  * @FilePath: /cache-updat/packages/vitePlugin/src/index.ts
  * @Description: 
  */
@@ -21,12 +21,13 @@ export default function viteWebCacheUpdatePlugin(): PluginOption {
         // 指明它们仅在 'build' 或 'serve' 模式时调用
         apply: 'build', // apply 亦可以是一个函数
         config() {
-            getVersion("git_commit_hash")
+            
             // 生产环境中修改 root 参数
             console.log('这里是config钩子');
         },
 
         configResolved() {
+            getVersion({ versionType: "git_commit_hash"})
             console.log('这里是configResolved钩子');
         },
 

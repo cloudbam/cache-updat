@@ -8,7 +8,7 @@
     "clean": "rimraf lib dist es",
     "preinstall": "npx only-allow pnpm",
     "watch": "pnpm --parallel -r run watch",
-    "perversion": "changeset",
+    "changeset": "changeset",
     "version": "changeset version && pnpm install --no-frozen-lockfile",
     "release": "pnpm run clean && pnpm run build -r && changeset publish",
     "release:nobuild": "changeset publish"
@@ -26,6 +26,8 @@
   "dependencies": {
     "@types/node": "^20.4.9",
     "execa": "^7.2.0",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
     "pnpm": "^8.6.12",
     "ts-node": "^10.9.1",
     "vite": "^4.4.9"

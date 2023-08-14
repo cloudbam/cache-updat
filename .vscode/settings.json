@@ -4,5 +4,6 @@
     "cSpell.words": [
         "execa"
     ],
-    "aiXcoder.showTrayIcon": true
+    "aiXcoder.showTrayIcon": true,
+    "commentTranslate.hover.enabled": false
 }
