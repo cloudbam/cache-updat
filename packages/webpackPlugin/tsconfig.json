@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["./src/**/*.ts"],
+  "baseUrl": "./packages",
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@plugin-web-cache-update/core": [
+        "../core/src/index.ts"
+      ]
+    }
+  }
+}
