@@ -2,17 +2,19 @@
  * @Author: yinbing.liu
  * @Date: 2022-08-13 21:07:01
  * @LastEditors: yinbing.liu
- * @LastEditTime: 2023-08-11 16:48:51
+ * @LastEditTime: 2023-08-17 11:16:24
  * @FilePath: /cache-updat/packages/vitePlugin/src/index.ts
  * @Description: 
  */
-import getVersion from "@plugin-web-cache-update/core"
+import getVersion, { JSON_FILE_NAME } from "@plugin-web-cache-update/core"
+import type { Plugin } from "vite";
+import { PluginsOptions } from "./types/type";
 
 
-import type { PluginOption } from "vite"
-export default function viteWebCacheUpdatePlugin(): PluginOption { 
+
+const viteWebCacheUpdatePlugin = (options: PluginsOptions): Plugin  =>{ 
     return {
-        name: 'vite:webCacheUpdate',  
+        name: 'vite:WebCacheUpdatePlugin',  
         // pre 会较于 post 先执行
         // pre：在 Vite 核心插件之前调用该插件
         // 默认：在 Vite 核心插件之后调用该插件
@@ -20,24 +22,17 @@ export default function viteWebCacheUpdatePlugin(): PluginOption {
         enforce: 'post', // post
         // 指明它们仅在 'build' 或 'serve' 模式时调用
         apply: 'build', // apply 亦可以是一个函数
-        config() {
-            
-            // 生产环境中修改 root 参数
-            console.log('这里是config钩子');
-        },
-
-        configResolved() {
-            getVersion({ versionType: "git_commit_hash"})
-            console.log('这里是configResolved钩子');
-        },
-
-        configureServer() {
-            console.log('这里是configureServer钩子');
-        },
-
-        transformIndexHtml() {
-            console.log('这里是transformIndexHtml钩子');
-        },
-
+        generateBundle(__options, bundle = {}) {
+            const version = getVersion(options);
+            bundle[JSON_FILE_NAME] = {
+                needsCodeReference: true,
+                type: 'asset',
+                name: undefined,
+                source: version,
+                fileName: `${JSON_FILE_NAME}.json`,
+            }
+        }
     }
 }
+
+export default viteWebCacheUpdatePlugin;

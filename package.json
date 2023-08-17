@@ -10,7 +10,7 @@
     "watch": "pnpm --parallel -r run watch",
     "changeset": "changeset",
     "version": "changeset version && pnpm install --no-frozen-lockfile",
-    "release": "pnpm run clean && pnpm run build -r && changeset publish",
+    "release": "pnpm run clean && pnpm run build -r && changeset publish --access=public",
     "release:nobuild": "changeset publish"
   },
   "keywords": [],
@@ -24,13 +24,16 @@
   },
   "description": "",
   "dependencies": {
+    "@plugin-web-cache-update/webpack-plugin": "^1.1.0",
     "@types/node": "^20.4.9",
     "execa": "^7.2.0",
     "fs": "0.0.1-security",
     "path": "^0.12.7",
     "pnpm": "^8.6.12",
     "ts-node": "^10.9.1",
-    "vite": "^4.4.9"
+    "url": "^0.11.1",
+    "vite": "^4.4.9",
+    "webpack": "^5.88.2"
   },
   "publishConfig": {
     "access": "public",

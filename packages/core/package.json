@@ -1,6 +1,6 @@
 {
   "name": "@plugin-web-cache-update/core",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "",
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
@@ -13,13 +13,16 @@
     }
   },
   "scripts": {
-    "build:packages": "unbuild",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:packages": "unbuild"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "execa": "^7.2.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
